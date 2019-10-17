@@ -1,0 +1,184 @@
+Código (estructura de repetición while)
+#include <stdio.h>
+/*
+ Este programa genera la tabla de multiplicar de un número dado.
+ El número se lee desde la entrada estándar (teclado).
+*/
+int main(){
+ int num, cont = 0;
+
+ printf("\a----- Tabla de multiplicar -----\n");
+ printf("Ingrese un número: \n");
+ scanf("%d", &num);
+
+ printf("La tabla de multiplicar del %d es:\n", num);
+ while (++cont <= 10)
+ printf("%d x %d = %d\n", num, cont, num*cont);
+ return 0;
+}
+Código (estructura de repetición while)
+#include <stdio.h>
+/*
+ Este programa genera un ciclo infinito.
+*/
+int main(){
+ // Al igual que en la estructura if-else
+ // 0 -> falso
+ // diferente de 0 -> verdadero
+
+ // El siguiente es un ciclo infinito
+ // porque la condición siempre es verdadera.
+ // Así mismo, debido a que el ciclo consta de una sola línea, las
+ // llaves { } son opcionales.
+
+ while (100) {
+ printf("Ciclo infinito.\nPara terminar el ciclo presione ctrl + c.\n");
+ }
+ return 0;
+}
+-------------
+Código (estructura de repetición do-while)
+#include <stdio.h>
+/*
+ Este programa obtiene el promedio de calificaciones ingresadas por
+el usuario. Las calificaciones se leen desde la entrada estándar (teclado).
+La inserción de calificaciones termina cuando el usuario presiona una tecla
+diferente de ‘S’ o ‘s’.
+*/
+int main () {
+ char op = 'n';
+ double sum = 0, calif = 0;
+ int veces = 0;
+ do {
+ printf("\tSuma de calificaciones\n");
+ printf("Ingrese la calificación:\n");
+ scanf("%lf", &calif);
+ veces++;
+ sum = sum + calif;
+
+ printf("¿Desea sumar otra? S/N\n");
+ 
+ 
+ setbuf(stdin, NULL); // limpia el buffer del teclado
+ scanf("%c",&op);
+ getchar();
+ } while (op == 'S' || op == 's');
+
+ printf("El promedio de las calificaciones ingresadas es: %lf\n", sum/veces);
+ return 0;
+ }
+ ---------------------------
+ Código (estructura de repetición for)
+ #include <stdio.h>
+/* Este programa genera una calculadora básica. */
+int main () {
+ int op, uno, dos;
+ do {
+ printf(" --- Calculadora ---\n");
+ printf("\n¿Qué desea hacer\n");
+ printf("1) Sumar\n");
+ printf("2) Restar\n");
+ printf("3) Multiplicar\n");
+ printf("4) Dividir\n");
+ printf("5) Salir\n");
+ scanf("%d",&op);
+
+ switch(op){
+ case 1:
+ printf("\tSumar\n");
+ printf("Introduzca los números a sumar separados por comas\n");
+ scanf("%d, %d",&uno, &dos);
+ printf("%d + %d = %d\n", uno, dos, (uno + dos));
+ break;
+ case 2:
+ printf("\tRestar\n");
+ printf("Introduzca los números a restar separados por comas\n");
+ scanf("%d, %d",&uno, &dos);
+ printf("%d - %d = %d\n", uno, dos, (uno - dos));
+ break;
+ case 3:
+ printf("\tMultiplicar\n");
+ printf("Introduzca los números a multiplicar separados por comas\n");
+ scanf("%d, %d",&uno, &dos);
+ printf("%d * %d = %d\n", uno, dos, (uno * dos));
+ break;
+ case 4:
+ printf("\tDividir\n");
+ printf("Introduzca los números a dividir separados por comas\n");
+ scanf("%d, %d",&uno, &dos);
+ printf("%d / %d = %.2lf\n", uno, dos, ((double)uno / dos));
+ break;
+ case 5:
+ printf("\tSalir\n");
+ break;
+ default:
+ printf("\tOpción inválida.\n");
+ }
+ } while (op != 5);
+ return 0;
+ }
+ -------------------------------
+ #include <stdio.h>
+Código (define) 
+/* Este programa genera un arreglo unidimensional de 5 elementos y
+* accede a cada elemento del arreglo a través de un ciclo for.
+*/
+int main (){
+ int enteroNumAlumnos = 5;
+ float realCalif = 0.0, realPromedio = 0.0;
+ printf("\tPromedio de calificaciones\n");
+ for (int indice = 0 ; indice < enteroNumAlumnos ; indice++){
+ printf("\nIngrese la calificación del alumn %d\n", indice+1);
+ scanf("%f",&realCalif);
+ realPromedio += realCalif;
+ }
+ printf("\nEl promedio de las calificaciones ingresadas es: %f\n",
+realPromedio/enteroNumAlumnos);
+return 0:
+}
+--------------------------------
+Código (break)
+#include <stdio.h>
+#define MAX 5
+/*
+* Este programa define un valor por defecto para el tamaño del arreglo
+* de tal manera que si el tamaño de éste cambia, solo se debe modificar
+* el valor de la constante MAX.
+* */
+int main () {
+ int arreglo[MAX], cont;
+ for (cont=0; cont<MAX; cont++){
+ printf("Ingrese el valor %d del arreglo: ", cont+1);
+ scanf("%i", &arreglo[cont]);
+ }
+ printf("El valor ingresado para cada elemento del arreglo es:\n[");
+ for (cont=0; cont<MAX; cont++){
+ printf("%d\t", arreglo[cont]);
+ }
+ printf("]\n");
+ retur 0;
+}
+-----------------------------------------------
+Código (continue)
+#include <stdio.h>
+/*
+* Este programa obtiene la suma de un LIMITE de números pares ingresados
+* */
+#define LIMITE 5
+int main (){
+ int enteroContador = 1;
+ int enteroNumero = 0;
+ int enteroSuma = 0;
+ while (enteroContador <= LIMITE){
+ printf("Ingrese número par %d:", enteroContador);
+ scanf("%d",&enteroNumero);
+ if (enteroNumero%2 != 0){
+ printf("El número insertado no es par.\n");
+ continue;
+ }
+ enteroSuma += enteroNumero;
+ enteroContador++;
+ }
+  printf("La suma de los números es: %d\n", enteroSuma);
+ return 0;
+}
